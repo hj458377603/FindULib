@@ -7,6 +7,9 @@
 
     <!--应用程序资源-->
     <Application.Resources>
+        <Storyboard x:Key="anm">
+            <DoubleAnimation From="-30" To="0" Duration="1000" Storyboard.TargetName="messagePanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].Y"></DoubleAnimation>
+        </Storyboard>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

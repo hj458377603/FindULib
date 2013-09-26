@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace FindULib
 {
@@ -48,6 +49,19 @@ namespace FindULib
         {
             base.OnNavigatedTo(e);
             this.txtTitle.Text = "";
+        }
+
+        private void CheckNetworkInfomation()
+        {
+            if (DeviceNetworkInformation.IsNetworkAvailable)
+            {
+                MessageBox.Show("当前网络不可用");
+            }
+        }
+
+        private void Panorama_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            CheckNetworkInfomation();
         }
     }
 }

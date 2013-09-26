@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" 
+    xmlns:uc="clr-namespace:FindULib"
     x:Class="FindULib.MainPage"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -15,7 +16,7 @@
     shell:SystemTray.IsVisible="True" BackKeyPress="PhoneApplicationPage_BackKeyPress_1">
 
     <Grid x:Name="LayoutRoot">
-        <controls:Panorama  Margin="0,10,0,0">
+        <controls:Panorama  Margin="0,10,0,0" Loaded="Panorama_Loaded_1">
             <controls:Panorama.Background>
                 <ImageBrush Stretch="None" ImageSource="/bg.jpg"/>
             </controls:Panorama.Background>
