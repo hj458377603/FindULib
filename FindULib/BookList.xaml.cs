@@ -13,6 +13,7 @@ using HtmlAgilityPack;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Windows.Media;
+using FindULib.Common;
 
 namespace FindULib
 {
@@ -59,57 +60,64 @@ namespace FindULib
 
         void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
-            htmlStr = e.Result;
-            htmlDoc.LoadHtml(htmlStr);
-
-            if (pageIndex == 1)
+            try
             {
-                HtmlNode countNode = htmlDoc.GetElementbyId("content");
-                if (countNode == null)
+                htmlStr = e.Result;
+                htmlDoc.LoadHtml(htmlStr);
+
+                if (pageIndex == 1)
                 {
-                    this.loadingProgress.Visibility = Visibility.Collapsed;
-                    this.searchTitle.Text = "没有检索到关键词包含\"" + keyWord + "\"的纸本馆藏书目";
-                    MessageBox.Show("没有检索到关键词包含\"" + keyWord + "\"的纸本馆藏书目");
-                    return;
-                }
-                string tempNodeText = countNode.ChildNodes.Where(n => n.Name == "div").First().InnerText;
-                int tempCount = tempNodeText.IndexOf(" 条") - tempNodeText.IndexOf("到 ") - 2;
-                count = int.Parse(tempNodeText.Substring(tempNodeText.IndexOf("到 ") + 2, tempCount));
-            }
-
-            HtmlNode bookListNode = htmlDoc.GetElementbyId("search_book_list");
-            if (bookListNode != null)
-            {
-                HtmlNodeCollection books = bookListNode.SelectNodes("li");
-
-                Book book = null;
-
-                foreach (var item in books)
-                {
-                    book = GetBook(item);
-
-                    ////获取ISBN
-                    //htmlStr = client.DownloadString("http://opac.njue.edu.cn/opac/item.php?marc_no=" + book.MarcNo);
-                    //int isbnStartIndex = htmlStr.IndexOf("ajax_douban.php?isbn=") + 21;
-                    //int isbnLength = htmlStr.IndexOf("\",function(json)") - isbnStartIndex;
-                    //book.Isbn = htmlStr.Substring(isbnStartIndex, isbnLength);
-
-                    //////从豆瓣获取数据设置简介和图片
-                    //htmlStr = client.DownloadString("https://api.douban.com/v2/book/isbn/" + book.Isbn);
-                    //GetDataFormDouban(book, htmlStr);
-
-                    //获取
-                    bookList.Add(book);
+                    HtmlNode countNode = htmlDoc.GetElementbyId("content");
+                    if (countNode == null)
+                    {
+                        this.loadingProgress.Visibility = Visibility.Collapsed;
+                        this.searchTitle.Text = "没有检索到关键词包含\"" + keyWord + "\"的纸本馆藏书目";
+                        MessageHelper.Show("主人，我尽力了");
+                        return;
+                    }
+                    string tempNodeText = countNode.ChildNodes.Where(n => n.Name == "div").First().InnerText;
+                    int tempCount = tempNodeText.IndexOf(" 条") - tempNodeText.IndexOf("到 ") - 2;
+                    count = int.Parse(tempNodeText.Substring(tempNodeText.IndexOf("到 ") + 2, tempCount));
                 }
 
+                HtmlNode bookListNode = htmlDoc.GetElementbyId("search_book_list");
+                if (bookListNode != null)
+                {
+                    HtmlNodeCollection books = bookListNode.SelectNodes("li");
+
+                    Book book = null;
+
+                    foreach (var item in books)
+                    {
+                        book = GetBook(item);
+
+                        ////获取ISBN
+                        //htmlStr = client.DownloadString("http://opac.njue.edu.cn/opac/item.php?marc_no=" + book.MarcNo);
+                        //int isbnStartIndex = htmlStr.IndexOf("ajax_douban.php?isbn=") + 21;
+                        //int isbnLength = htmlStr.IndexOf("\",function(json)") - isbnStartIndex;
+                        //book.Isbn = htmlStr.Substring(isbnStartIndex, isbnLength);
+
+                        //////从豆瓣获取数据设置简介和图片
+                        //htmlStr = client.DownloadString("https://api.douban.com/v2/book/isbn/" + book.Isbn);
+                        //GetDataFormDouban(book, htmlStr);
+
+                        //获取
+                        bookList.Add(book);
+                    }
+
+                }
+                this.loadingProgress.Visibility = Visibility.Collapsed;
+                loadFinished = true;
+                // 查询第一页时需要
+                if (pageIndex == 1)
+                {
+                    this.searchTitle.Text = "共检索到" + count + "本关键词包含\"" + keyWord + "\"的图书";
+                    this.lbBookList.ItemsSource = bookList;
+                }
             }
-            this.loadingProgress.Visibility = Visibility.Collapsed;
-            loadFinished = true;
-            // 查询第一页时需要
-            if (pageIndex == 1)
+            catch (WebException ex)
             {
-                this.searchTitle.Text = "共检索到" + count + "本关键词包含\"" + keyWord + "\"的图书";
-                this.lbBookList.ItemsSource = bookList;
+                MessageHelper.Show("网络错误");
             }
         }
 
@@ -270,7 +278,7 @@ namespace FindULib
                         //处理listbox滚动到底的事情
                         if (pageIndex == count / 20 + 1)
                         {
-                            MessageBox.Show("到底了，没有了！");
+                            MessageHelper.Show("到底了，没有了！");
                         }
                         else
                         {

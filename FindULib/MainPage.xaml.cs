@@ -11,6 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Net.NetworkInformation;
+using FindULib.Common;
 
 namespace FindULib
 {
@@ -27,7 +28,7 @@ namespace FindULib
             string keyWord = this.txtTitle.Text;
             if (keyWord.Trim() == string.Empty)
             {
-                MessageBox.Show("请填写关键词");
+                MessageHelper.Show("请填写关键词");
             }
             else
             {
@@ -53,9 +54,9 @@ namespace FindULib
 
         private void CheckNetworkInfomation()
         {
-            if (DeviceNetworkInformation.IsNetworkAvailable)
+            if (!DeviceNetworkInformation.IsNetworkAvailable)
             {
-                MessageBox.Show("当前网络不可用");
+                MessageHelper.Show("当前网络不可用");
             }
         }
 
