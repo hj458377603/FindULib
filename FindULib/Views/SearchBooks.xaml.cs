@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using FindULib.Models;
 
 namespace FindULib
 {
@@ -15,9 +16,9 @@ namespace FindULib
         public SearchBooks()
         {
             InitializeComponent();
-            
+
             List<Book> list = new List<Book>();
-            
+
         }
     }
 }

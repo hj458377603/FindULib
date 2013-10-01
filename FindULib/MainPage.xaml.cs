@@ -32,7 +32,7 @@ namespace FindULib
             }
             else
             {
-                NavigationService.Navigate(new Uri("/BookList.xaml?keyWord=" + keyWord, UriKind.Relative));
+                NavigationService.Navigate(new Uri("/Views/BookList.xaml?keyWord=" + keyWord, UriKind.Relative));
             }
         }
 

@@ -23,6 +23,10 @@ namespace FindULib.UserControls
         public void Show(string text)
         {
             this.txtMessage.Text = text;
+            if (text.Length > 10)
+            {
+                this.txtMessage.FontSize = 20;
+            }
             Storyboard storyBoard = (Storyboard)this.Resources["storyBoardWithHold"];
             storyBoard.Begin();
             storyBoard.Completed += new EventHandler(StoryBoard_Completed);

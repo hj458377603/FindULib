@@ -77,9 +77,7 @@ D:\Git\FindULib\Bin\Debug\Microsoft.Phone.Controls.xml
 D:\Git\FindULib\Bin\Debug\Newtonsoft.Json.xml
 D:\Git\FindULib\obj\Debug\FindULib.csprojResolveAssemblyReference.cache
 D:\Git\FindULib\obj\Debug\App.g.cs
-D:\Git\FindULib\obj\Debug\BookList.g.cs
 D:\Git\FindULib\obj\Debug\MainPage.g.cs
-D:\Git\FindULib\obj\Debug\SearchBooks.g.cs
 D:\Git\FindULib\obj\Debug\FindULib.g.resources
 D:\Git\FindULib\obj\Debug\FindULib.dll
 D:\Git\FindULib\obj\Debug\FindULib.pdb
@@ -108,3 +106,8 @@ D:\Git\FindULib\FindULib\obj\Debug\FindULib.pdb
 D:\Git\FindULib\FindULib\obj\Debug\XapCacheFile.xml
 D:\Git\FindULib\FindULib\obj\Debug\UserControls\Toast.g.cs
 D:\Git\FindULib\FindULib\obj\Debug\UserControls\ProgressBarControl.g.cs
+D:\Git\FindULib\obj\Debug\UserControls\ProgressBarControl.g.cs
+D:\Git\FindULib\obj\Debug\UserControls\Toast.g.cs
+D:\Git\FindULib\obj\Debug\Views\BookList.g.cs
+D:\Git\FindULib\obj\Debug\Views\SearchBooks.g.cs
+D:\Git\FindULib\obj\Debug\Views\BookInfoView.g.cs

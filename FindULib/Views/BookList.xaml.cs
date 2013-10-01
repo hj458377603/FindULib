@@ -1,19 +1,22 @@
-﻿using System;
+﻿using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using System.Text;
-using HtmlAgilityPack;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Windows.Media;
+using System.Windows.Navigation;
+
 using FindULib.Common;
+using HtmlAgilityPack;
+using FindULib.Models;
+using System.Windows.Input;
 
 namespace FindULib
 {
@@ -29,6 +32,7 @@ namespace FindULib
         string keyWord = "关键词传递失败";
         bool loadFinished = false;
         bool isTap = false;
+        bool isNavigatedTo = false;
 
         public BookList()
         {
@@ -39,8 +43,17 @@ namespace FindULib
             bookList = new ObservableCollection<Book>();
         }
 
-        void DoSearch(string keyWord)
+        /// <summary>
+        /// 根据关键词查询
+        /// </summary>
+        /// <param name="keyWord"></param>
+        private void DoSearch(string keyWord)
         {
+            Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                MessageHelper.ShowProgressBar();
+            });
+
             string searchType = "title";
             if (pageIndex == 1)
             {
@@ -70,7 +83,10 @@ namespace FindULib
                     HtmlNode countNode = htmlDoc.GetElementbyId("content");
                     if (countNode == null)
                     {
-                        this.loadingProgress.Visibility = Visibility.Collapsed;
+                        Deployment.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            MessageHelper.HideProgressBar();
+                        });
                         this.searchTitle.Text = "没有检索到关键词包含\"" + keyWord + "\"的纸本馆藏书目";
                         MessageHelper.Show("主人，我尽力了");
                         return;
@@ -91,22 +107,15 @@ namespace FindULib
                     {
                         book = GetBook(item);
 
-                        ////获取ISBN
-                        //htmlStr = client.DownloadString("http://opac.njue.edu.cn/opac/item.php?marc_no=" + book.MarcNo);
-                        //int isbnStartIndex = htmlStr.IndexOf("ajax_douban.php?isbn=") + 21;
-                        //int isbnLength = htmlStr.IndexOf("\",function(json)") - isbnStartIndex;
-                        //book.Isbn = htmlStr.Substring(isbnStartIndex, isbnLength);
-
-                        //////从豆瓣获取数据设置简介和图片
-                        //htmlStr = client.DownloadString("https://api.douban.com/v2/book/isbn/" + book.Isbn);
-                        //GetDataFormDouban(book, htmlStr);
-
                         //获取
                         bookList.Add(book);
                     }
 
                 }
-                this.loadingProgress.Visibility = Visibility.Collapsed;
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    MessageHelper.HideProgressBar();
+                });
                 loadFinished = true;
                 // 查询第一页时需要
                 if (pageIndex == 1)
@@ -215,19 +224,15 @@ namespace FindULib
             return book;
         }
 
-        void GetDataFormDouban(Book book, string doubanJsonStr)
-        {
-            JObject jobj = (JObject)JsonConvert.DeserializeObject(doubanJsonStr);
-            book.ImageUrl = jobj["image"].ToString();
-            book.Summary = jobj["summary"].ToString();
-        }
-
         private void lbBookList_Loaded(object sender, RoutedEventArgs e)
         {
-            if (NavigationContext.QueryString.Keys.Contains("keyWord"))
+            if (!isNavigatedTo)
             {
-                keyWord = NavigationContext.QueryString["keyWord"];
-                DoSearch(keyWord);
+                if (NavigationContext.QueryString.Keys.Contains("keyWord"))
+                {
+                    keyWord = NavigationContext.QueryString["keyWord"];
+                    DoSearch(keyWord);
+                }
             }
         }
 
@@ -283,7 +288,6 @@ namespace FindULib
                         else
                         {
                             pageIndex++;
-                            this.loadingProgress.Visibility = Visibility.Visible;
                             loadFinished = false;
                             DoSearch(keyWord);
                         }
@@ -300,6 +304,29 @@ namespace FindULib
         private void lbBookList_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             isTap = true;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            Book book = btn.CommandParameter as Book;
+            NavigationService.Navigate(new Uri("/Views/BookInfoView.xaml?marcNo=" + book.MarcNo + "&name="
+                                                + book.Name + "&author=" + book.AutorName + "&publishMessage="
+                                                + book.PublishMessage, UriKind.Relative));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+            base.OnNavigatedTo(e);
+            if (e.NavigationMode == NavigationMode.Back)
+            {
+                isNavigatedTo = true;
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    MessageHelper.HideProgressBar();
+                });
+            }
         }
     }
 }

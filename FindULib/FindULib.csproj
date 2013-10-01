@@ -67,8 +67,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Book.cs" />
-    <Compile Include="BookList.xaml.cs">
+    <Compile Include="Common\BaseCommand.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BookListViewModel.cs" />
+    <Compile Include="Views\BookInfoView.xaml.cs">
+      <DependentUpon>BookInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookList.xaml.cs">
       <DependentUpon>BookList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\MessageHelper.cs" />
@@ -76,7 +82,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchBooks.xaml.cs">
+    <Compile Include="Views\SearchBooks.xaml.cs">
       <DependentUpon>SearchBooks.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ProgressBarControl.xaml.cs">
@@ -91,7 +97,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="BookList.xaml">
+    <Page Include="Views\BookInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BookList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,7 +109,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SearchBooks.xaml">
+    <Page Include="Views\SearchBooks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,14 +137,17 @@
     <Content Include="libs\HtmlAgilityPack.dll" />
     <Content Include="libs\HtmlAgilityPack.pdb" />
     <Content Include="libs\HtmlAgilityPack.XML" />
+    <Content Include="libs\Microsoft.Phone.Controls.Toolkit.dll" />
     <Content Include="libs\Newtonsoft.Json.dll" />
     <Content Include="libs\Newtonsoft.Json.xml" />
     <Content Include="loginImg7.png" />
     <Content Include="Logo_173_173.png" />
     <Content Include="Logo_250_100_blue.png" />
     <Content Include="none.png" />
+    <Content Include="s16238299.jpg" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
