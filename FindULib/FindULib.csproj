@@ -68,6 +68,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\BaseCommand.cs" />
+    <Compile Include="Common\CommonHelper.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BookListViewModel.cs" />
@@ -127,24 +128,20 @@
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="about.jpg" />
+    <Content Include="bg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bg.jpg" />
+    <Content Include="checkVersion.jpg" />
     <Content Include="libs\HtmlAgilityPack.dll" />
     <Content Include="libs\HtmlAgilityPack.pdb" />
     <Content Include="libs\HtmlAgilityPack.XML" />
     <Content Include="libs\Microsoft.Phone.Controls.Toolkit.dll" />
     <Content Include="libs\Newtonsoft.Json.dll" />
     <Content Include="libs\Newtonsoft.Json.xml" />
-    <Content Include="loginImg7.png" />
     <Content Include="Logo_173_173.png" />
     <Content Include="Logo_250_100_blue.png" />
     <Content Include="none.png" />
-    <Content Include="s16238299.jpg" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup />

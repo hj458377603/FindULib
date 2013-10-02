@@ -21,6 +21,7 @@ namespace FindULib
         public MainPage()
         {
             InitializeComponent();
+            CommonHelper.CheckVersion();
         }
 
         private void btnFind_Click(object sender, RoutedEventArgs e)
@@ -32,7 +33,7 @@ namespace FindULib
             }
             else
             {
-                NavigationService.Navigate(new Uri("/Views/BookList.xaml?keyWord=" + keyWord, UriKind.Relative));
+                NavigationService.Navigate(new Uri("/Views/BookList.xaml?keyWord=" + Uri.EscapeDataString(keyWord), UriKind.Relative));
             }
         }
 
@@ -63,6 +64,11 @@ namespace FindULib
         private void Panorama_Loaded_1(object sender, RoutedEventArgs e)
         {
             CheckNetworkInfomation();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            CommonHelper.CheckVersion();
         }
     }
 }

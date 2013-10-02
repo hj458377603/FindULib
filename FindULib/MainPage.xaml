@@ -18,7 +18,7 @@
     <Grid x:Name="LayoutRoot">
         <controls:Panorama  Margin="0,10,0,0" Loaded="Panorama_Loaded_1">
             <controls:Panorama.Background>
-                <ImageBrush Stretch="None" ImageSource="/bg.jpg"/>
+                <ImageBrush Stretch="Fill" ImageSource="/bg.jpg"/>
             </controls:Panorama.Background>
             <controls:Panorama.TitleTemplate>
                 <DataTemplate>
@@ -33,8 +33,21 @@
                     </StackPanel>
                 </Grid>
             </controls:PanoramaItem>
-            <controls:PanoramaItem Header="开发者">
-                <Grid/>
+            <controls:PanoramaItem Header="更多">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="12">
+                        <Button Width="168" Height="168" BorderThickness="0" Padding="0" Click="Button_Click_1">
+                            <Image Source="checkVersion.jpg"></Image>
+                        </Button>
+                        <Button Width="168" Height="168" BorderThickness="0" Padding="0">
+                            <Image Source="about.jpg"></Image>
+                        </Button>
+                    </StackPanel>
+                </Grid>
             </controls:PanoramaItem>
         </controls:Panorama>
 
