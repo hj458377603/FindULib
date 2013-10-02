@@ -310,9 +310,9 @@ namespace FindULib
         {
             Button btn = sender as Button;
             Book book = btn.CommandParameter as Book;
-            NavigationService.Navigate(new Uri("/Views/BookInfoView.xaml?marcNo=" + book.MarcNo + "&name="
-                                                + book.Name + "&author=" + book.AutorName + "&publishMessage="
-                                                + book.PublishMessage, UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/BookInfoView.xaml?marcNo=" + Uri.EscapeDataString(book.MarcNo) + "&name="
+                                                + Uri.EscapeDataString(book.Name) + "&author=" + Uri.EscapeDataString(book.AutorName) + "&publishMessage="
+                                                + Uri.EscapeDataString(book.PublishMessage), UriKind.Relative));
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

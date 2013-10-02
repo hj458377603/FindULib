@@ -1,26 +1,23 @@
-﻿<xapCache source="D:\Git\FindULib\Bin\Debug\FindULib.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2013/10/1 17:42:40">
+﻿<xapCache source="D:\Git\FindULib\Bin\Debug\FindULib.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2013/10/2 16:41:34">
   <file source="D:\Git\FindULib\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="2013/10/1 9:04:17" />
   <file source="D:\Git\FindULib\Logo_173_173.png" archivePath="Logo_173_173.png" lastWriteTime="2013/10/1 9:04:17" />
   <file source="D:\Git\FindULib\Logo_173_173.png" archivePath="Logo_173_173.png" lastWriteTime="2013/10/1 9:04:17" />
-  <file source="D:\Git\FindULib\obj\Debug\FindULib.dll" archivePath="FindULib.dll" lastWriteTime="2013/10/1 17:42:40" />
+  <file source="D:\Git\FindULib\obj\Debug\FindULib.dll" archivePath="FindULib.dll" lastWriteTime="2013/10/2 16:41:33" />
   <file source="D:\Git\FindULib\libs\HtmlAgilityPack.dll" archivePath="HtmlAgilityPack.dll" lastWriteTime="2013/10/1 9:04:17" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="2012/7/6 1:40:16" />
   <file source="D:\Git\FindULib\libs\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="2013/10/1 9:04:17" />
   <file source="D:\Git\FindULib\Bin\Debug\System.Xml.XPath.dll" archivePath="System.Xml.XPath.dll" lastWriteTime="2013/10/1 9:04:17" />
-  <file source="D:\Git\FindULib\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="2013/10/1 9:04:17" />
-  <file source="D:\Git\FindULib\Background.png" archivePath="Background.png" lastWriteTime="2013/10/1 9:04:17" />
+  <file source="D:\Git\FindULib\about.jpg" archivePath="about.jpg" lastWriteTime="2013/10/2 15:31:18" />
   <file source="D:\Git\FindULib\bg.jpg" archivePath="bg.jpg" lastWriteTime="2013/10/1 9:04:17" />
+  <file source="D:\Git\FindULib\checkVersion.jpg" archivePath="checkVersion.jpg" lastWriteTime="2013/10/2 15:31:17" />
   <file source="D:\Git\FindULib\libs\HtmlAgilityPack.dll" archivePath="libs\HtmlAgilityPack.dll" lastWriteTime="2013/10/1 9:04:17" />
   <file source="D:\Git\FindULib\libs\HtmlAgilityPack.XML" archivePath="libs\HtmlAgilityPack.XML" lastWriteTime="2013/10/1 9:04:17" />
   <file source="D:\Git\FindULib\libs\Microsoft.Phone.Controls.Toolkit.dll" archivePath="libs\Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="2013/10/1 9:47:20" />
   <file source="D:\Git\FindULib\libs\Newtonsoft.Json.dll" archivePath="libs\Newtonsoft.Json.dll" lastWriteTime="2013/10/1 9:04:17" />
   <file source="D:\Git\FindULib\libs\Newtonsoft.Json.xml" archivePath="libs\Newtonsoft.Json.xml" lastWriteTime="2013/10/1 9:04:17" />
-  <file source="D:\Git\FindULib\loginImg7.png" archivePath="loginImg7.png" lastWriteTime="2013/10/1 9:04:17" />
   <file source="D:\Git\FindULib\Logo_250_100_blue.png" archivePath="Logo_250_100_blue.png" lastWriteTime="2013/10/1 9:04:17" />
   <file source="D:\Git\FindULib\none.png" archivePath="none.png" lastWriteTime="2013/10/1 9:04:17" />
-  <file source="D:\Git\FindULib\s16238299.jpg" archivePath="s16238299.jpg" lastWriteTime="2013/10/1 15:46:26" />
   <file source="D:\Git\FindULib\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="2013/10/1 9:04:17" />
   <file source="D:\Git\FindULib\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2013/10/1 9:04:55" />
-  <file source="D:\Git\FindULib\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="2013/10/1 9:04:17" />
-  <file source="D:\Git\FindULib\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="2013/10/1 9:04:17" />
+  <file source="D:\Git\FindULib\Bin\Debug\bg.jpg" archivePath="bg.jpg" lastWriteTime="2013/10/1 9:04:17" />
 </xapCache>
