@@ -30,7 +30,7 @@
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Image Source="{Binding ImageUrl}" Width="Auto" Grid.Column="0" ImageOpened="Image_ImageOpened_1"></Image>
+                    <Image x:Name="image" Source="{Binding ImageUrl}" Width="Auto" Grid.Column="0" ImageOpened="Image_ImageOpened_1"></Image>
                     <StackPanel Grid.Column="1">
                         <TextBlock  Text="{Binding AutorName}" Margin="24 0 0 0" TextWrapping="Wrap"></TextBlock>
                         <TextBlock  Text="{Binding PublishDate}" Margin="24 0 0 0" TextWrapping="Wrap"></TextBlock>
@@ -44,5 +44,16 @@
             </Grid>
         </ScrollViewer>
     </Grid>
-
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsMenuEnabled="True"
+                              IsVisible="True"
+                              Mode="Default">
+            <shell:ApplicationBarIconButton x:Name="appbar_addToFavorite"
+                                            IconUri="/Assets/Images/add.png"
+                                            Text="收藏" IsEnabled="False" Click="appbar_addToFavorite_Click_1" />
+            <shell:ApplicationBarIconButton x:Name="appbar_share"
+                                            IconUri="/Assets/Images/share.png"
+                                            Text="分享" Click="appbar_share_Click_1" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

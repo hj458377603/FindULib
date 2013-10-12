@@ -7,13 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" 
     xmlns:uc="clr-namespace:FindULib.UserControls"
+    xmlns:toollit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     x:Class="FindULib.MainPage"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="False" BackKeyPress="PhoneApplicationPage_BackKeyPress_1">
+    shell:SystemTray.IsVisible="False" BackKeyPress="PhoneApplicationPage_BackKeyPress_1"
+    toollit:TiltEffect.IsTiltEnabled="True">
 
     <Grid x:Name="LayoutRoot">
         <controls:Panorama  Margin="0,10,0,0" Loaded="Panorama_Loaded_1">
@@ -39,18 +41,81 @@
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="12">
-                        <Button Width="168" Height="168" BorderThickness="0" Padding="0" Click="Button_Click_1">
-                            <Image Source="checkVersion.jpg"></Image>
+                    <toollit:WrapPanel Grid.Row="0" Margin="12">
+                        <Button Width="188" Height="80" BorderThickness="0" Padding="0" Background="#FF46B5FD"  Click="Button_Click_1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="72"></ColumnDefinition>
+                                    <ColumnDefinition Width="104"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" Source="/Assets/Images/school.png" Width="48" Height="48" HorizontalAlignment="Left"></Image>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Margin="-24 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">选择学校</TextBlock>
+                            </Grid>
                         </Button>
-                        <Button Width="168" Height="168" BorderThickness="0" Padding="0">
-                            <Image Source="about.jpg"></Image>
+                        <Button Width="188" Height="80" BorderThickness="0" Padding="0" Background="#FF46B5FD"  Click="Button_Click_1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="72"></ColumnDefinition>
+                                    <ColumnDefinition Width="104"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" Source="/Assets/Images/favorite.png" Width="48" Height="48" HorizontalAlignment="Left"></Image>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Margin="-24 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">收藏夹</TextBlock>
+                            </Grid>
                         </Button>
-                    </StackPanel>
+                        <Button Width="188" Height="80" BorderThickness="0" Padding="0" Background="#FF46B5FD"  Click="Button_Click_1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="72"></ColumnDefinition>
+                                    <ColumnDefinition Width="104"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" Source="/Assets/Images/rubish.png" Width="48" Height="48" HorizontalAlignment="Left"></Image>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Margin="-24 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">清空缓存</TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button Width="188" Height="80" BorderThickness="0" Padding="0" Background="#FF46B5FD"  Click="Button_Click_1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="72"></ColumnDefinition>
+                                    <ColumnDefinition Width="104"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" Source="/Assets/Images/update.png" Width="48" Height="48" HorizontalAlignment="Left"></Image>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Margin="-24 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">检测更新</TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button Width="188" Height="80" BorderThickness="0" Padding="0" Background="#FF46B5FD"  Click="Button_Click_1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="72"></ColumnDefinition>
+                                    <ColumnDefinition Width="104"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" Source="/Assets/Images/about.png" Width="48" Height="48" HorizontalAlignment="Left"></Image>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Margin="-24 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">关于我们</TextBlock>
+                            </Grid>
+                        </Button>
+                    </toollit:WrapPanel>
                 </Grid>
             </controls:PanoramaItem>
         </controls:Panorama>
-
     </Grid>
 
 </phone:PhoneApplicationPage>

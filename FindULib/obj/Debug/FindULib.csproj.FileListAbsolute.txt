@@ -65,13 +65,11 @@ D:\findu_book\FindULib\FindULib\obj\Debug\XapCacheFile.xml
 D:\Git\FindULib\Bin\Debug\FindULib.dll
 D:\Git\FindULib\Bin\Debug\FindULib.pdb
 D:\Git\FindULib\Bin\Debug\AppManifest.xaml
-D:\Git\FindULib\Bin\Debug\FindULib.xap
 D:\Git\FindULib\Bin\Debug\HtmlAgilityPack.dll
 D:\Git\FindULib\Bin\Debug\Microsoft.Phone.Controls.dll
 D:\Git\FindULib\Bin\Debug\Newtonsoft.Json.dll
 D:\Git\FindULib\Bin\Debug\HtmlAgilityPack.pdb
 D:\Git\FindULib\Bin\Debug\HtmlAgilityPack.xml
-D:\Git\FindULib\Bin\Debug\Microsoft.Phone.Controls.xml
 D:\Git\FindULib\Bin\Debug\Newtonsoft.Json.xml
 D:\Git\FindULib\obj\Debug\FindULib.csprojResolveAssemblyReference.cache
 D:\Git\FindULib\obj\Debug\App.g.cs
@@ -110,3 +108,5 @@ D:\Git\FindULib\obj\Debug\Views\BookList.g.cs
 D:\Git\FindULib\obj\Debug\Views\SearchBooks.g.cs
 D:\Git\FindULib\obj\Debug\Views\BookInfoView.g.cs
 D:\Git\FindULib\Bin\Debug\bg.jpg
+D:\Git\FindULib\Bin\Debug\FindULib_Debug_AnyCPU.xap
+D:\Git\FindULib\Bin\Debug\Microsoft.Phone.Controls.Toolkit.dll

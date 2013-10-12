@@ -12,6 +12,8 @@ using FindULib.Models;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using FindULib.Common;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace FindULib.Views
 {
@@ -23,10 +25,13 @@ namespace FindULib.Views
         private string authorName = string.Empty;
         private string publishMessage = string.Empty;
         private string name = string.Empty;
+        string imageFileName = string.Empty;
 
         public BookInfoView()
         {
             InitializeComponent();
+            // appbar按钮的IsEnabled属性，ApplicationBarIconButton 是在buttons集合中的所以我们可以用索引的形式获得某个图标，并设置属性
+            this.appbar_addToFavorite = (ApplicationBarIconButton)this.ApplicationBar.Buttons[0];
 
             client = new WebClient();
             client.Encoding = Encoding.UTF8;
@@ -98,12 +103,34 @@ namespace FindULib.Views
             }
         }
 
+        /// <summary>
+        /// 图片加载成功
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Image_ImageOpened_1(object sender, RoutedEventArgs e)
         {
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
                 MessageHelper.HideProgressBar();
+                this.appbar_addToFavorite.IsEnabled = true;
             });
+        }
+
+        private void appbar_addToFavorite_Click_1(object sender, EventArgs e)
+        {
+            imageFileName = book.ImageUrl.Replace(":", "_").Replace("/", "_").Replace(".", "_");
+            //book.ImageUrl = book.ImageUrl.Replace(":", "_").Replace("/", "_").Replace(".", "_");
+            CommonHelper.SaveProperty<Book>(SettingKey.favorite, book);
+            BitmapImage bitmapImage = this.image.Source as BitmapImage;
+            CommonHelper.SaveImageFile(bitmapImage, imageFileName);
+        }
+
+        private void appbar_share_Click_1(object sender, EventArgs e)
+        {
+            //Book temp = CommonHelper.GetProperty<Book>(SettingKey.favorite);
+            BitmapImage bitmapImage = new BitmapImage(new Uri("ms-appdata:///" + AppConfig.STORE_IMAGE_DIRECTORY_NAME + "\\" + imageFileName));
+            this.image.Source = bitmapImage;
         }
     }
 }

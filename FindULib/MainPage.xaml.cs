@@ -68,7 +68,7 @@ namespace FindULib
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            CommonHelper.CheckVersion();
+            CommonHelper.CheckVersion(true);
         }
     }
 }

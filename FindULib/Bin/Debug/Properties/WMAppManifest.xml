@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="zh-CN" />
-  <App xmlns="" ProductID="{7c50c3c4-8af1-4082-8742-445dd8325954}" Title="FindULib" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="FindULib author" Description="Sample description" Publisher="FindULib" PublisherID="{1ed3a5f4-6491-455d-977f-c9ed4eddf171}">
-    <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{4e004ef1-28f0-43d7-855b-accb4a5322fc}" Title="FindU" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="FindULib author" Description="Sample description" Publisher="FindULib" PublisherID="{1ce4db6b-2d2f-4aff-873c-9e7971feb4ba}">
+    <IconPath IsRelative="true" IsResource="false">Logo_173_173.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_GAMERSERVICES" />
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />
@@ -29,8 +29,8 @@
         <TemplateFlip>
           <SmallImageURI IsResource="false" IsRelative="true">Logo_173_173.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsResource="false" IsRelative="true">Background.png</BackgroundImageURI>
-          <Title>FindULib</Title>
+          <BackgroundImageURI IsResource="false" IsRelative="true">Logo_173_173.png</BackgroundImageURI>
+          <Title>FindU</Title>
           <BackContent></BackContent>
           <BackBackgroundImageURI></BackBackgroundImageURI>
           <BackTitle></BackTitle>
@@ -40,7 +40,9 @@
       </PrimaryToken>
     </Tokens>
     <ScreenResolutions>
+      <ScreenResolution Name="ID_RESOLUTION_WVGA" />
       <ScreenResolution Name="ID_RESOLUTION_WXGA" />
+      <ScreenResolution Name="ID_RESOLUTION_HD720P" />
     </ScreenResolutions>
   </App>
 </Deployment>
